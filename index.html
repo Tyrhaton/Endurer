@@ -1,0 +1,308 @@
+ <!DOCTYPE html>
+<html>
+<body>
+
+<section>
+  <div class="card green">
+    <div class="card-header">
+      <div class="date" id="date">
+        1 January 2025
+      </div>
+      <a href="https://github.com/Tyrhaton/Endurer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+        <path fill-rule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0" clip-rule="evenodd" />
+        </svg></a>
+    </div>
+    <div class="card-body">
+      <h3>Endurer</h3>
+      <p>Working on next update</p>
+      <div class="progress">
+        <span>Progress</span>
+        <div class="progress-bar"></div>
+        <span>10%</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <ul id="people">
+        <li> <a href="https://github.com/Tyrhaton"><img src="https://avatars.githubusercontent.com/u/88054847?v=4" alt=""></a></li>
+            <path fill-rule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </ul>
+
+      <a href="#" class="btn-countdown" id="days-left">X days left</a>
+    </div>
+  </div>
+</section>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap");
+
+$clr-green: #078479;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #232228;
+  font-family: "Nunito", sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  display: grid;
+  place-items: center;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 50em;
+  margin-inline: auto;
+  gap: 3.25rem;
+  position: relative;
+  z-index: 10;
+  align-items: center;
+  padding: 5em 0;
+
+  .card {
+    position: relative;
+    z-index: 555;
+    max-width: 20rem;
+    min-height: 20rem;
+    width: 90%;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 1px 12px 25px rgb(0 0 0 / 78%);
+    border-radius: 2.25rem;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 2.25rem;
+      z-index: -1;
+      border: 0.155rem solid transparent;
+
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+    }
+
+    &-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8em 0.5em 0em 1.5em;
+
+      .date {
+        color: #ddd;
+      }
+
+      svg {
+        color: #fff;
+        width: 2.5rem;
+        cursor: pointer;
+      }
+    }
+
+    &-body {
+      position: absolute;
+      width: 100%;
+      display: block;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0.7em 1.25em 0.5em 1.5em;
+
+      h3 {
+        color: #fff;
+        font-size: 1.375rem;
+        margin-top: 0.625em;
+        margin-bottom: 0.188em;
+        text-transform: capitalize;
+        font-weight: 600;
+      }
+
+      p {
+        color: #ddd;
+        font-size: 1rem;
+        letter-spacing: 0.031rem;
+      }
+      .progress {
+        margin-top: 0.938rem;
+
+        .progress-bar {
+          position: relative;
+          width: 100%;
+          background: #363636;
+          height: 0.313rem;
+          display: block;
+          border-radius: 3.125rem;
+
+          &:after {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            display: block;
+            border-radius: 3.125rem;
+          }
+        }
+        span:first-of-type {
+          color: #fff;
+          text-align: left;
+          font-weight: 600;
+          width: 100%;
+          display: block;
+          margin-bottom: 0.313rem;
+        }
+
+        span {
+          margin-top: 0.313rem;
+          text-align: right;
+          display: block;
+          color: #fff;
+        }
+      }
+    }
+    &-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      border-top: 0.063rem solid #292929;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.7em 1.25em 0.5em 1.5em;
+      background: #151419;
+      border-bottom-left-radius: 2.25rem;
+      border-bottom-right-radius: 2.25rem;
+
+      ul {
+        display: flex;
+        align-items: center;
+
+        li {
+          list-style-type: none;
+          display: flex;
+          margin-right: -0.625rem;
+
+          img {
+            border-radius: 50%;
+            width: 1.875rem;
+            height: 1.875rem;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .btn-add {
+        width: 1.375rem;
+        height: 1.375rem;
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          width: 1rem;
+        }
+      }
+
+      .btn-countdown {
+        background: #222127;
+        color: #fff;
+        border-radius: 2em;
+        padding: 0.625rem 1.5rem;
+      }
+    }
+  }
+
+  .green {
+    background: radial-gradient(
+      ellipse at right top,
+      #107667ed 0%,
+      #151419 47%,
+      #151419 100%
+    );
+
+    &:before {
+      background: linear-gradient(
+          45deg,
+          #232228,
+          #232228,
+          #232228,
+          #232228,
+          #01c3a8
+        )
+        border-box;
+    }
+    .btn-add {
+      background: $clr-green;
+    }
+    .progress-bar:after {
+      width: 10%;
+      background: $clr-green;
+    }
+
+    .btn-countdown {
+      &:hover {
+        background: $clr-green;
+      }
+    }
+  }
+}
+  </style>
+  <script>
+    
+    function updateDaysLeft(targetDate) {
+        const today = new Date();
+        const target = new Date(targetDate);
+        const differenceInTime = target - today;
+        const daysLeft = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
+        const span = document.getElementById("days-left");
+        if (daysLeft < 0) {
+          daysLeft = 0;
+        }
+            span.textContent = `${daysLeft} days left`;
+    }
+    const targetDate = "2025-1-1"; 
+    updateDaysLeft(targetDate);
+    let date = new Date(2025,0,1);
+    const formatter = new Intl.DateTimeFormat('gb-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    });
+    
+    const formattedDate = formatter.format(date);
+    
+    document.getElementById("date").textContent = formattedDate;
+  </script>
+</body>
+</html> 
