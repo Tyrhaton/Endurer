@@ -1,308 +1,214 @@
- <!DOCTYPE html>
-<html>
-<body>
-
-<section>
-  <div class="card green">
-    <div class="card-header">
-      <div class="date" id="date">
-        1 January 2025
-      </div>
-      <a href="https://github.com/Tyrhaton/Endurer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-        <path fill-rule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0" clip-rule="evenodd" />
-        </svg></a>
-    </div>
-    <div class="card-body">
-      <h3>Endurer</h3>
-      <p>Working on next update</p>
-      <div class="progress">
-        <span>Progress</span>
-        <div class="progress-bar"></div>
-        <span>10%</span>
-      </div>
-    </div>
-    <div class="card-footer">
-      <ul id="people">
-        <li> <a href="https://github.com/Tyrhaton"><img src="https://avatars.githubusercontent.com/u/88054847?v=4" alt=""></a></li>
-            <path fill-rule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
-          </svg>
-        </a>
-      </ul>
-
-      <a href="#" class="btn-countdown" id="days-left">X days left</a>
-    </div>
-  </div>
-</section>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap");
-
-$clr-green: #078479;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  min-height: 100vh;
-  min-height: 100svh;
-  background: #232228;
-  font-family: "Nunito", sans-serif;
-  position: relative;
-  overflow-x: hidden;
-  display: grid;
-  place-items: center;
-}
-
-a {
-  text-decoration: none;
-  display: inline-block;
-}
-
-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 50em;
-  margin-inline: auto;
-  gap: 3.25rem;
-  position: relative;
-  z-index: 10;
-  align-items: center;
-  padding: 5em 0;
-
-  .card {
-    position: relative;
-    z-index: 555;
-    max-width: 20rem;
-    min-height: 20rem;
-    width: 90%;
-    display: grid;
-    place-content: center;
-    place-items: center;
-    text-align: center;
-    position: relative;
-    box-shadow: 1px 12px 25px rgb(0 0 0 / 78%);
-    border-radius: 2.25rem;
-
-    &::before {
-      position: absolute;
-      content: "";
-      top: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 2.25rem;
-      z-index: -1;
-      border: 0.155rem solid transparent;
-
-      -webkit-mask: linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: destination-out;
-      mask-composite: exclude;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    &-header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+    body {
+      min-height: 100vh;
+      background: #232228;
+      font-family: "Nunito", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    section {
       width: 100%;
+      max-width: 400px;
+    }
+
+    .card {
+      background: radial-gradient(ellipse at right top, #107667ed 0%, #151419 47%, #151419 100%);
+      color: #ddd;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px;
+      align-items: center;
+      font-size: 1rem;
+    }
+
+    .card-header .date {
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .card-header svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+
+    .card-body {
+      text-align: center;
+      padding: 16px;
+    }
+
+    .card-body h3 {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .card-body p {
+      color: #ddd;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .progress {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.8em 0.5em 0em 1.5em;
-
-      .date {
-        color: #ddd;
-      }
-
-      svg {
-        color: #fff;
-        width: 2.5rem;
-        cursor: pointer;
-      }
+      margin-top: 16px;
     }
 
-    &-body {
-      position: absolute;
-      width: 100%;
-      display: block;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 0.7em 1.25em 0.5em 1.5em;
-
-      h3 {
-        color: #fff;
-        font-size: 1.375rem;
-        margin-top: 0.625em;
-        margin-bottom: 0.188em;
-        text-transform: capitalize;
-        font-weight: 600;
-      }
-
-      p {
-        color: #ddd;
-        font-size: 1rem;
-        letter-spacing: 0.031rem;
-      }
-      .progress {
-        margin-top: 0.938rem;
-
-        .progress-bar {
-          position: relative;
-          width: 100%;
-          background: #363636;
-          height: 0.313rem;
-          display: block;
-          border-radius: 3.125rem;
-
-          &:after {
-            position: absolute;
-            content: "";
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 100%;
-            display: block;
-            border-radius: 3.125rem;
-          }
-        }
-        span:first-of-type {
-          color: #fff;
-          text-align: left;
-          font-weight: 600;
-          width: 100%;
-          display: block;
-          margin-bottom: 0.313rem;
-        }
-
-        span {
-          margin-top: 0.313rem;
-          text-align: right;
-          display: block;
-          color: #fff;
-        }
-      }
+    .progress-bar {
+      flex: 1;
+      height: 6px;
+      background: #363636;
+      border-radius: 3px;
+      margin: 0 8px;
+      position: relative;
     }
-    &-footer {
+
+    .progress-bar::after {
+      content: "";
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
-      right: 0;
-      width: 100%;
-      border-top: 0.063rem solid #292929;
+      height: 100%;
+      width: 10%;
+      background: #078479;
+      border-radius: 3px;
+    }
+
+    .card-footer {
+      background: #151419;
+      padding: 16px;
       display: flex;
       justify-content: space-between;
-      padding: 0.7em 1.25em 0.5em 1.5em;
-      background: #151419;
-      border-bottom-left-radius: 2.25rem;
-      border-bottom-right-radius: 2.25rem;
-
-      ul {
-        display: flex;
-        align-items: center;
-
-        li {
-          list-style-type: none;
-          display: flex;
-          margin-right: -0.625rem;
-
-          img {
-            border-radius: 50%;
-            width: 1.875rem;
-            height: 1.875rem;
-            object-fit: cover;
-          }
-        }
-      }
-
-      .btn-add {
-        width: 1.375rem;
-        height: 1.375rem;
-        border-radius: 50%;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        svg {
-          width: 1rem;
-        }
-      }
-
-      .btn-countdown {
-        background: #222127;
-        color: #fff;
-        border-radius: 2em;
-        padding: 0.625rem 1.5rem;
-      }
+      align-items: center;
     }
-  }
 
-  .green {
-    background: radial-gradient(
-      ellipse at right top,
-      #107667ed 0%,
-      #151419 47%,
-      #151419 100%
-    );
+    .card-footer ul {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+    }
 
-    &:before {
-      background: linear-gradient(
-          45deg,
-          #232228,
-          #232228,
-          #232228,
-          #232228,
-          #01c3a8
-        )
-        border-box;
-    }
-    .btn-add {
-      background: $clr-green;
-    }
-    .progress-bar:after {
-      width: 10%;
-      background: $clr-green;
+    .card-footer ul li img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
     }
 
     .btn-countdown {
-      &:hover {
-        background: $clr-green;
+      background: #222127;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .btn-countdown:hover {
+      background: #078479;
+    }
+
+    /* Media Query for larger screens */
+    @media (min-width: 768px) {
+      section {
+        max-width: 500px;
+      }
+
+      .card-body h3 {
+        font-size: 2rem;
+      }
+
+      .card-body p {
+        font-size: 1.2rem;
+      }
+
+      .btn-countdown {
+        font-size: 1.2rem;
       }
     }
-  }
-}
   </style>
+</head>
+<body>
+  <section>
+    <div class="card">
+      <div class="card-header">
+        <div class="date" id="date">1 January 2025</div>
+        <a href="https://github.com/Tyrhaton/Endurer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+      <div class="card-body">
+        <h3>Endurer</h3>
+        <p>Working on next update</p>
+        <div class="progress">
+          <span>Progress</span>
+          <div class="progress-bar"></div>
+          <span>10%</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <ul>
+          <li>
+            <a href="https://github.com/Tyrhaton">
+              <img src="https://avatars.githubusercontent.com/u/88054847?v=4" alt="Profile Picture">
+            </a>
+          </li>
+        </ul>
+        <a href="#" class="btn-countdown" id="days-left">X days left</a>
+      </div>
+    </div>
+  </section>
+
   <script>
-    
     function updateDaysLeft(targetDate) {
-        const today = new Date();
-        const target = new Date(targetDate);
-        const differenceInTime = target - today;
-        const daysLeft = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
-        const span = document.getElementById("days-left");
-        if (daysLeft < 0) {
-          daysLeft = 0;
-        }
-            span.textContent = `${daysLeft} days left`;
+      const today = new Date();
+      const target = new Date(targetDate);
+      const differenceInTime = target - today;
+      const daysLeft = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
+      const span = document.getElementById("days-left");
+      span.textContent = daysLeft > 0 ? `${daysLeft} days left` : "0 days left";
     }
-    const targetDate = "2025-1-1"; 
+
+    const targetDate = "2025-01-01";
     updateDaysLeft(targetDate);
-    let date = new Date(2025,0,1);
-    const formatter = new Intl.DateTimeFormat('gb-GB', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
+
+    const date = new Date(2025, 0, 1);
+    const formatter = new Intl.DateTimeFormat('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
     });
-    
+
     const formattedDate = formatter.format(date);
-    
     document.getElementById("date").textContent = formattedDate;
   </script>
 </body>
-</html> 
+</html>
